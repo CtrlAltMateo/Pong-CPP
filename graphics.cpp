@@ -16,5 +16,6 @@ void DrawGame() {
         DrawBetterRectangle(player1Pos[0], player1Pos[1], playerSize[0], playerSize[1], WHITE);
         DrawBetterRectangle(player2Pos[0], player2Pos[1], playerSize[0], playerSize[1], WHITE);
         DrawBetterCircle(circlePos[0], circlePos[1], circleSize, WHITE);
+        DrawText(TextFormat("%i : %i", score[0], score[1]), 852, 15, 100, WHITE);
     EndDrawing();
 }

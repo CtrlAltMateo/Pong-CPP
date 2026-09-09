@@ -3,6 +3,7 @@
 #include "game.h" 
 #include "graphics.h"
 
+int score[2];
 int playerSize[2];
 int player1Pos[2];
 int player2Pos[2];
