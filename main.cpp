@@ -4,11 +4,11 @@
 #include "graphics.h"
 
 int score[2];
-int playerSize[2];
-int player1Pos[2];
-int player2Pos[2];
-int circlePos[2];
-float circleVelocity[2];
+Vector2 circleVelocity;
+
+Rectangle player1;
+Rectangle player2;
+Rectangle circle;
 
 int main() {
     InitGame();

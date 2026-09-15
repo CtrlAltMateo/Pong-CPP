@@ -1,21 +1,21 @@
 #include <raylib.h>
 #include "config.h"
 
-void DrawBetterRectangle(int x, int y, int width, int height, Color color) {
-    DrawRectangle(x - (width / 2), y - (height / 2), width, height, color);
+void DrawBetterRectangle(Rectangle rectangle, Color color) {
+    DrawRectangle(rectangle.x - (rectangle.width / 2), rectangle.y - (rectangle.height / 2), rectangle.width, rectangle.height, color);
 }
 
-void DrawBetterCircle(int x, int y, int radius, Color color) {
-    DrawCircle(x - (radius / 2), y - (radius / 2), radius, color);
+void DrawBetterCircle(Rectangle circle, Color color) {
+    DrawCircle(circle.x - (circle.width / 2), circle.y - (circle.width / 2), circle.width, color);
 }
 
 void DrawGame() {
     ClearBackground(BLACK);
 
     BeginDrawing();
-        DrawBetterRectangle(player1Pos[0], player1Pos[1], playerSize[0], playerSize[1], WHITE);
-        DrawBetterRectangle(player2Pos[0], player2Pos[1], playerSize[0], playerSize[1], WHITE);
-        DrawBetterCircle(circlePos[0], circlePos[1], circleSize, WHITE);
+        DrawBetterRectangle(player1, WHITE);
+        DrawBetterRectangle(player2, WHITE);
+        DrawBetterCircle(circle, WHITE);
         DrawText(TextFormat("%i : %i", score[0], score[1]), 852, 15, 100, WHITE);
     EndDrawing();
 }
