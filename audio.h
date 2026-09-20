@@ -7,3 +7,7 @@ void PlayHitPlayerSound();
 void PlayHitWallSound();
 
 void PlayScoreSound();
+
+void PlayDrums();
+
+void UpdateAudio();

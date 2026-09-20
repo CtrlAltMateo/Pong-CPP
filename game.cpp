@@ -34,6 +34,8 @@ void InitGame() {
 }
 
 void UpdateGame() {
+    UpdateAudio();
+
     if(IsKeyDown(KEY_W)) {player1.y -= playerSpeed;}
     if(IsKeyDown(KEY_S)) {player1.y += playerSpeed;}
     if(IsKeyDown(KEY_UP)) {player2.y -= playerSpeed;}
