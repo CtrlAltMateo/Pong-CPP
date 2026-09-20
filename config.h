@@ -1,6 +1,6 @@
 const int screenWidth = 1920;
 const int screenHeight = 1080;
-const float playerSpeed = 5.0f;
+const float playerSpeed = 6.5f;
 const int circleStartSpeed = 5;
 const float circleAcceleration = 1.087f;
 

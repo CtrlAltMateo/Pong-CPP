@@ -2,6 +2,7 @@
 #include "config.h"
 #include "game.h" 
 #include "graphics.h"
+#include "audio.h"
 
 int score[2];
 Vector2 circleVelocity;
@@ -12,6 +13,7 @@ Rectangle circle;
 
 int main() {
     InitGame();
+    InitAudio();
 
     while(!WindowShouldClose()) {
         UpdateGame();
