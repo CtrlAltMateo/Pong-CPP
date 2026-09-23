@@ -15,7 +15,7 @@ int main() {
     InitGame();
     InitAudio();
 
-    PlayDrums();
+    PlayMainMusic();
 
     while(!WindowShouldClose()) {
         UpdateGame();

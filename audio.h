@@ -8,6 +8,6 @@ void PlayHitWallSound();
 
 void PlayScoreSound();
 
-void PlayDrums();
+void PlayMainMusic();
 
 void UpdateAudio();

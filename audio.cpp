@@ -3,7 +3,7 @@
 Sound fxHitPlayer;
 Sound fxHitWall;
 Sound fxScore;
-Music mxDrums;
+Music mxMain;
 
 void InitAudio() {
     InitAudioDevice();
@@ -12,8 +12,8 @@ void InitAudio() {
     fxHitWall = LoadSound("Assets/Audio/fxHitWall.wav");
     fxScore = LoadSound("Assets/Audio/GOOOOOOOOAL.wav");
     
-    mxDrums = LoadMusicStream("Assets/Audio/mxDrums.wav");
-    mxDrums.looping = true;
+    mxMain = LoadMusicStream("Assets/Audio/mxMain.wav");
+    mxMain.looping = true;
 }
 
 void PlayHitPlayerSound() {
@@ -27,10 +27,10 @@ void PlayScoreSound() {
     PlaySound(fxScore);
 }
 
-void PlayDrums() {
-    PlayMusicStream(mxDrums);
+void PlayMainMusic() {
+    PlayMusicStream(mxMain);
 }
 
 void UpdateAudio() {
-    UpdateMusicStream(mxDrums);
+    UpdateMusicStream(mxMain);
 }
