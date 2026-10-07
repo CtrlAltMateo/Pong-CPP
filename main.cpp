@@ -19,7 +19,7 @@ int main() {
 
     while(!WindowShouldClose()) {
         UpdateGame();
-        DrawGame();
+        DrawGame(circle);
     }
 
     CloseWindow();

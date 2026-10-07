@@ -11,16 +11,16 @@ void ResetPlayerPos() {
     player2.y = 460;
 }
 
-void ResetBall(Rectangle& ball, Vector2& ballVelocity, bool right) {
-    ball.x = screenWidth / 2;
-    ball.y = screenHeight / 2;
+void ResetBall(bool right) {
+    circle.x = screenWidth / 2;
+    circle.y = screenHeight / 2;
     if(right) {
-        ballVelocity.x = -ballStartSpeed;
+        circleVelocity.x = -ballStartSpeed;
     }
     else {
-        ballVelocity.x = ballStartSpeed;
+        circleVelocity.x = ballStartSpeed;
     }
-    ballVelocity.y = 0;
+    circleVelocity.y = 0;
 }
 
 void UpdateP1() {
@@ -72,19 +72,17 @@ void UpdateBall(Rectangle& ball, Vector2& ballVelocity) {
         ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player2.y + player2.height /2))  * 0.045}, (Vector2){1, 0});
     }
 
-    if(ball.x + ball.width * 2 <= 0) {
+    if(ball.x + ball.width * 2 <= 0 && particleCountdown < 0) {
         PlayScoreSound();
         score[1]++;
-        InitParticles(ball);
-        ResetBall(ball, ballVelocity, false);
+        InitParticles(false);
         ResetPlayerPos();
     }
 
-    if(ball.x - ball.width * 2 >= screenWidth) {
+    if(ball.x - ball.width * 2 >= screenWidth && particleCountdown < 0) {
         PlayScoreSound();
         score[0]++;
-        InitParticles(ball);
-        ResetBall(ball, ballVelocity, true);
+        InitParticles(true);
         ResetPlayerPos();
     }
 

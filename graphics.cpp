@@ -27,7 +27,7 @@ void DrawParticles(vector<Particle> particles) {
     }
 }
 
-void DrawGame() {
+void DrawGame(Rectangle ball) {
     ClearBackground(BLACK);
 
     BeginDrawing();
@@ -37,7 +37,7 @@ void DrawGame() {
         DrawCenterLine(WHITE, centerLineSegments);
         const char *text = TextFormat("%i   %i", score[0], score[1]);
         DrawText(text, 1920 / 2 - MeasureText(text, 100) / 2, 15, 100, WHITE);
-        DrawText(TextFormat("%i", particles.size()), 15, 15, 25, WHITE);
+        DrawText(TextFormat("%.0f %.0f", circle.x, circle.y), 15, 15, 25, WHITE);
         DrawParticles(particles);
     EndDrawing();
 }

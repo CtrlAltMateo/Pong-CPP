@@ -1,3 +1,3 @@
 #include <raylib.h>
 
-void DrawGame();
+void DrawGame(Rectangle ball);

@@ -3,35 +3,55 @@
 #include <vector>
 #include <cstdlib>
 #include "config.h"
+#include "game.h"
 #include "particles.h"
 using namespace std;
 
 vector<Particle> particles;
+int particleCountdown = -1;
 
-void InitParticles(Rectangle ball) {
-    Vector2 pos = {ball.x, ball.y};
+bool right = false;
+
+void InitParticles(bool circleRight) {
+    Vector2 pos = {circle.x, circle.y};
+    particleCountdown = particleLife;
+    right = circleRight;
+
     for(int i = 0; i < particleCount; i++) {
-        float xvel = rand() % 2000 - 1000;
-        float yvel = rand() % 1000 - 500;
-        Vector2 vel = {xvel / 100, yvel / 100};
+        float xVel = rand() % 4000 / 1000.0f;
+        if(circleRight) {
+            xVel *= -1;
+        }
+        float yVel = (rand() % 8000 - 4000) / 1000.0f;
+        Vector2 vel = {xVel, yVel};
+
         Particle particle = {
             pos,
             vel,
-            360 / particleCount * i,
-            3 * refreshRate
+            i % 40
         };
+
         particles.push_back(particle);
     }
 }
 
 void UpdateParticles() {
-    for( int i = 0; i < particles.size(); i++) {
-        if(particles[i].countdown > 0) {
+    if(particleCountdown > 0) {
+        particleCountdown--;
+
+        for( int i = 0; i < particles.size(); i++) {
+            if(particleCountdown < particleHalfLife) {
+                float xVel = (screenWidth / 2 - particles[i].pos.x) / particleCountdown;
+                float yVel = (screenHeight / 2 - particles[i].pos.y) / particleCountdown;
+                particles[i].vel = {xVel, yVel};
+            }
             particles[i].pos += particles[i].vel;
-            particles[i].countdown--;
+            particles[i].hue++;
         }
-        else {
-            particles.pop_back();
-        }
+    }
+    else if(particleCountdown == 0) {
+        particleCountdown =  -1;
+        particles.clear();
+        ResetBall(right);
     }
 }
