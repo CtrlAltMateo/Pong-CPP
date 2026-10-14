@@ -3,6 +3,8 @@
 Sound fxHitPlayer;
 Sound fxHitWall;
 Sound fxScore;
+Sound fxHighlight;
+Sound fxSelect;
 Music mxMain;
 
 void InitAudio() {
@@ -11,6 +13,8 @@ void InitAudio() {
     fxHitPlayer = LoadSound("Assets/Audio/fxHitPlayer.wav");
     fxHitWall = LoadSound("Assets/Audio/fxHitWall.wav");
     fxScore = LoadSound("Assets/Audio/GOOOOOOOOAL.wav");
+    fxHighlight = LoadSound("Assets/Audio/fxHighlight.wav");
+    fxSelect = LoadSound("Assets/Audio/fxSelect.wav");
     
     mxMain = LoadMusicStream("Assets/Audio/mxMain.wav");
     mxMain.looping = true;
@@ -25,6 +29,14 @@ void PlayHitWallSound() {
 }
 void PlayScoreSound() {
     PlaySound(fxScore);
+}
+
+void PlayHightlightSound() {
+    PlaySound(fxHighlight);
+}
+
+void PlaySelectSound() {
+    PlaySound(fxSelect);
 }
 
 void PlayMainMusic() {

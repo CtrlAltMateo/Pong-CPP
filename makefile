@@ -1,5 +1,5 @@
-pongpromax.exe: main.cpp game.cpp game.h graphics.cpp graphics.h config.h audio.h audio.cpp particles.cpp particles.h
-	x86_64-w64-mingw32-g++ main.cpp game.cpp graphics.cpp audio.cpp particles.cpp -o pongpromax.exe \
+pongpromax.exe: main.cpp menu.cpp menu.h game.cpp game.h graphics.cpp graphics.h config.h audio.h audio.cpp particles.cpp particles.h
+	x86_64-w64-mingw32-g++ main.cpp menu.cpp game.cpp graphics.cpp audio.cpp particles.cpp -o pongpromax.exe \
                                                                    -O2 -Wall -s \
                                                                    -Iraylib/src \
                                                                    raylib/src/libraylib.a \

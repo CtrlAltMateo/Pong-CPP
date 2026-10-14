@@ -1,3 +1,5 @@
-#include <raylib.h>
+void DrawMenu();
 
-void DrawGame(Rectangle ball);
+void DrawSettingsMenu();
+
+void DrawGame();

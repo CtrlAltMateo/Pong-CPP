@@ -8,6 +8,10 @@ void PlayHitWallSound();
 
 void PlayScoreSound();
 
+void PlayHightlightSound();
+
+void PlaySelectSound();
+
 void PlayMainMusic();
 
 void UpdateAudio();

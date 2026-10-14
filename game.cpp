@@ -92,8 +92,13 @@ void UpdateBall(Rectangle& ball, Vector2& ballVelocity) {
 
 void InitGame() {
     InitWindow(1920, 1080, "Pong!");
+    refreshRate = GetMonitorRefreshRate(0);
     SetTargetFPS(refreshRate);
+    SetExitKey(KEY_NULL);
     std::srand(std::time({}));
+
+    particleLife = 2 * refreshRate;
+    particleHalfLife = particleLife / 2;
 
     score[0] = 0;
     score[1] = 0;
