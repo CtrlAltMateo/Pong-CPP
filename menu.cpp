@@ -9,7 +9,7 @@ const int settingsOptions = 4;
 
 void HandleMenuClick() {
     if(highlighted == 0) {
-        currentScreen = GAME2P;
+        currentScreen = GAME1P;
     }
     else if(highlighted == 1) {
         highlighted = 0;

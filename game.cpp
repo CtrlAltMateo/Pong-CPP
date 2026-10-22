@@ -11,10 +11,10 @@ void ResetPlayerPos() {
     player2.y = 460;
 }
 
-void ResetBall(bool right) {
+void ResetBall(bool isBallRight) {
     circle.x = screenWidth / 2;
     circle.y = screenHeight / 2;
-    if(right) {
+    if(isBallRight) {
         circleVelocity.x = -ballStartSpeed;
     }
     else {
@@ -36,9 +36,19 @@ void UpdateP1() {
     }
 }
 
+void UpdateAI() {
+    if(circle.y < player2.y + (player2.height / 2)) {player2.y -= playerSpeed;}
+    else if(circle.y > player2.y + (player2.height / 2)) {player2.y += playerSpeed;}
+}
+
 void UpdateP2() {
-    if(IsKeyDown(KEY_UP)) {player2.y -= playerSpeed;}
-    if(IsKeyDown(KEY_DOWN)) {player2.y += playerSpeed;}
+    if(currentScreen == GAME1P) {
+        UpdateAI();
+    }
+    else {
+        if(IsKeyDown(KEY_UP)) {player2.y -= playerSpeed;}
+        if(IsKeyDown(KEY_DOWN)) {player2.y += playerSpeed;}
+    }
 
     if(player2.y < 0) {
         player2.y = 0;
@@ -63,13 +73,13 @@ void UpdateBall(Rectangle& ball, Vector2& ballVelocity) {
     if(CheckCollisionRecs(player1, ball)) {
         PlayHitPlayerSound();
         ballVelocity.x *= ballAcceleration;
-        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player1.y + player1.height / 2)) * 0.045}, (Vector2){1, 0});
+        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player1.y + player1.height / 2)) * 0.045f}, (Vector2){1, 0});
     }
 
     if(CheckCollisionRecs(player2, ball)) {
         PlayHitPlayerSound();
         ballVelocity.x *= ballAcceleration;
-        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player2.y + player2.height /2))  * 0.045}, (Vector2){1, 0});
+        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player2.y + player2.height / 2))  * 0.045f}, (Vector2){1, 0});
     }
 
     if(ball.x + ball.width * 2 <= 0 && particleCountdown < 0) {

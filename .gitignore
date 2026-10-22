@@ -1,3 +1,4 @@
-pongpromax.exe
 compile
+*.exe
+index.*
 .vscode/
