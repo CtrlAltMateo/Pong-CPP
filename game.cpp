@@ -11,10 +11,10 @@ void ResetPlayerPos() {
     player2.y = 460;
 }
 
-void ResetBall(bool right) {
+void ResetBall(bool isBallRight) {
     circle.x = screenWidth / 2;
     circle.y = screenHeight / 2;
-    if(right) {
+    if(isBallRight) {
         circleVelocity.x = -ballStartSpeed;
     }
     else {

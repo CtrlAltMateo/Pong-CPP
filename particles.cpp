@@ -10,12 +10,12 @@ using namespace std;
 vector<Particle> particles;
 int particleCountdown = -1;
 
-bool right = false;
+bool isBallRight = false;
 
 void InitParticles(bool circleRight) {
     Vector2 pos = {circle.x, circle.y};
     particleCountdown = particleLife;
-    right = circleRight;
+    isBallRight = circleRight;
 
     for(int i = 0; i < particleCount; i++) {
         float xVel = rand() % 4000 / 1000.0f;
@@ -52,6 +52,6 @@ void UpdateParticles() {
     else if(particleCountdown == 0) {
         particleCountdown =  -1;
         particles.clear();
-        ResetBall(right);
+        ResetBall(isBallRight);
     }
 }

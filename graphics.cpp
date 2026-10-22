@@ -32,11 +32,11 @@ void DrawMenu() {
     ClearBackground(BLACK);
 
     BeginDrawing();
-        DrawRectangle(screenWidth / 2 - 150, 497.5 + (highlighted * 60), 300, 50, LIGHTGRAY);
+        DrawRectangle(screenWidth / 2 - 150, 497.5 + (highlighted * 60), 300, 50, WHITE);
         DrawText("PONG!", screenWidth / 2 - MeasureText("PONG!", 250) / 2, 50, 250, WHITE);
-        DrawText("PLAY", screenWidth / 2 - MeasureText("PLAY", 50) / 2, 500, 50, WHITE);
-        DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 50) / 2, 560, 50, WHITE);
-        DrawText("QUIT", screenWidth / 2 - MeasureText("QUIT", 50) / 2, 620, 50, WHITE);
+        DrawText("PLAY", screenWidth / 2 - MeasureText("PLAY", 50) / 2, 500, 50, (highlighted == 0) ? BLACK : WHITE);
+        DrawText("SETTINGS", screenWidth / 2 - MeasureText("SETTINGS", 50) / 2, 560, 50, (highlighted == 1) ? BLACK : WHITE);
+        DrawText("QUIT", screenWidth / 2 - MeasureText("QUIT", 50) / 2, 620, 50, (highlighted == 2) ? BLACK : WHITE);
     EndDrawing();
 }
 
