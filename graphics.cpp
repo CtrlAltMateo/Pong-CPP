@@ -49,6 +49,16 @@ void DrawSettingsMenu() {
     EndDrawing();
 }
 
+void DrawPlayerMenu() {
+    ClearBackground(BLACK);
+
+    BeginDrawing();
+        DrawRectangle(screenWidth / 2 - 150, 497.5 + (highlighted * 60), 300, 50, WHITE);
+        DrawText("1 PLAYER", screenWidth / 2 - MeasureText("1 PLAYER", 50) / 2, 500, 50, (highlighted == 0) ? BLACK : WHITE);
+        DrawText("2 PLAYER", screenWidth / 2 - MeasureText("2 PLAYER", 50) / 2, 560, 50, (highlighted == 1) ? BLACK : WHITE);
+    EndDrawing();
+}
+
 void DrawGame() {
     ClearBackground(BLACK);
 

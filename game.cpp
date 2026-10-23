@@ -36,10 +36,19 @@ void UpdateP1() {
     }
 }
 
-void UpdateP2() {
-    if(IsKeyDown(KEY_UP)) {player2.y -= playerSpeed;}
-    if(IsKeyDown(KEY_DOWN)) {player2.y += playerSpeed;}
+void UpdateAI() {
+    if(circle.y < player2.y + (player2.height / 2)) {player2.y -= playerSpeed * aiSpeedRatio;}
+    else if(circle.y > player2.y + (player2.height / 2)) {player2.y += playerSpeed * aiSpeedRatio;}
+}
 
+void UpdateP2() {
+    if(currentScreen == GAME1P) {
+        UpdateAI();
+    }
+    else {
+        if(IsKeyDown(KEY_UP)) {player2.y -= playerSpeed;}
+        if(IsKeyDown(KEY_DOWN)) {player2.y += playerSpeed;}
+    }
     if(player2.y < 0) {
         player2.y = 0;
     }

@@ -35,7 +35,11 @@ int main() {
             UpdateSettingsMenu();
             DrawSettingsMenu();
         }
-        else if(currentScreen == GAME2P) {
+        else if(currentScreen == PLAYERSELECT) {
+            UpdatePlayerMenu();
+            DrawPlayerMenu();
+        }
+        else if(currentScreen == GAME1P || currentScreen == GAME2P) {
             UpdateGame();
             DrawGame();
             // TODO: Add function parameter for player count

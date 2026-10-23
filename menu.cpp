@@ -6,10 +6,11 @@
 int highlighted = 0;
 const int mainOptions = 3;
 const int settingsOptions = 4;
+const int playerOptions = 2;
 
 void HandleMenuClick() {
     if(highlighted == 0) {
-        currentScreen = GAME2P;
+        currentScreen = PLAYERSELECT;
     }
     else if(highlighted == 1) {
         highlighted = 0;
@@ -35,6 +36,15 @@ void HandleSettingsMenuClick() {
     }
 }
 
+void HandlePlayerMenuClick() {
+    if(highlighted == 0) {
+        currentScreen = GAME1P;
+    }
+    else if(highlighted == 1) {
+        currentScreen = GAME2P;
+    }
+}
+
 void UpdateMenu() {
     if(IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {
         highlighted--;
@@ -51,6 +61,25 @@ void UpdateMenu() {
     highlighted = highlighted % mainOptions;
     if(highlighted < 0) {
         highlighted = mainOptions - 1;
+    }
+}
+
+void UpdatePlayerMenu() {
+    if(IsKeyPressed(KEY_W) || IsKeyPressed(KEY_UP)) {
+        highlighted--;
+        PlayHightlightSound();
+    }
+    if(IsKeyPressed(KEY_S) || IsKeyPressed(KEY_DOWN)) {
+        highlighted++;
+        PlayHightlightSound();
+    }
+    if(IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_ENTER)) {
+        HandlePlayerMenuClick();
+        PlaySelectSound();
+    }
+    highlighted = highlighted % playerOptions;
+    if(highlighted < 0) {
+        highlighted = playerOptions - 1;
     }
 }
 

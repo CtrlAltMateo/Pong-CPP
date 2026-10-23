@@ -10,6 +10,8 @@ const float playerSpeed = 6.5f;
 const int ballStartSpeed = 5;
 const float ballAcceleration = 1.087f;
 
+const float aiSpeedRatio = 0.43f;
+
 extern int particleLife;
 extern int particleHalfLife;
 
@@ -26,6 +28,7 @@ extern bool quitGame;
 enum Screen {
     MENU,
     SETTINGS,
+    PLAYERSELECT,
     GAME1P,
     GAME2P
 };
