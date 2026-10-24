@@ -2,6 +2,7 @@
 #include <raymath.h>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 #include "config.h"
 #include "audio.h"
 #include "particles.h"
@@ -72,13 +73,13 @@ void UpdateBall(Rectangle& ball, Vector2& ballVelocity) {
     if(CheckCollisionRecs(player1, ball)) {
         PlayHitPlayerSound();
         ballVelocity.x *= ballAcceleration;
-        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player1.y + player1.height / 2)) * 0.045}, (Vector2){1, 0});
+        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player1.y + player1.height / 2)) * 0.045f}, (Vector2){1, 0});
     }
 
     if(CheckCollisionRecs(player2, ball)) {
         PlayHitPlayerSound();
         ballVelocity.x *= ballAcceleration;
-        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player2.y + player2.height /2))  * 0.045}, (Vector2){1, 0});
+        ballVelocity = Vector2Reflect((Vector2){ballVelocity.x, (ball.y - (player2.y + player2.height /2))  * 0.045f}, (Vector2){1, 0});
     }
 
     if(ball.x + ball.width * 2 <= 0 && particleCountdown < 0) {
@@ -101,7 +102,9 @@ void UpdateBall(Rectangle& ball, Vector2& ballVelocity) {
 
 void InitGame() {
     InitWindow(1920, 1080, "Pong!");
-    refreshRate = GetMonitorRefreshRate(0);
+    #ifndef PLATFORM_WEB
+        refreshRate = GetMonitorRefreshRate(0);
+    #endif
     SetTargetFPS(refreshRate);
     SetExitKey(KEY_NULL);
     std::srand(std::time({}));

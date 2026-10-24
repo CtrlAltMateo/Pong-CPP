@@ -6,11 +6,12 @@ const int screenHeight = 1080;
 const int centerLineSegments = 108;
 const int particleCount = 100;
 
-const float playerSpeed = 6.5f;
-const int ballStartSpeed = 5;
+extern float playerSpeed;
+extern int ballStartSpeed;
 const float ballAcceleration = 1.087f;
 
-const float aiSpeedRatio = 0.43f;
+
+const float aiSpeedRatio = 1;
 
 extern int particleLife;
 extern int particleHalfLife;

@@ -25,10 +25,15 @@ void InitParticles(bool circleRight) {
         float yVel = (rand() % 8000 - 4000) / 1000.0f;
         Vector2 vel = {xVel, yVel};
 
+        #if defined(PLATFORM_WEB)
+            vel.x *= 2.75f;
+            vel.y *= 2.75f;
+        #endif
+
         Particle particle = {
             pos,
             vel,
-            i % 40
+            (float)(i % 40)
         };
 
         particles.push_back(particle);
