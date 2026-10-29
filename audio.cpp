@@ -5,6 +5,7 @@ Sound fxHitWall;
 Sound fxScore;
 Sound fxHighlight;
 Sound fxSelect;
+Sound fxParticleAccelerator;
 Music mxMain;
 
 void InitAudio() {
@@ -15,7 +16,7 @@ void InitAudio() {
     fxScore = LoadSound("Assets/Audio/GOOOOOOOOAL.wav");
     fxHighlight = LoadSound("Assets/Audio/fxHighlight.wav");
     fxSelect = LoadSound("Assets/Audio/fxSelect.wav");
-    
+    fxParticleAccelerator = LoadSound("Assets/Audio/fxFIREINTHEHOLE.wav");
     mxMain = LoadMusicStream("Assets/Audio/mxMain.wav");
     mxMain.looping = true;
 }
@@ -37,6 +38,10 @@ void PlayHightlightSound() {
 
 void PlaySelectSound() {
     PlaySound(fxSelect);
+}
+
+void KABOOM() {
+    PlaySound(fxParticleAccelerator);
 }
 
 void PlayMainMusic() {

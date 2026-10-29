@@ -9,10 +9,13 @@
     #include <emscripten/emscripten.h>
 #endif
 
+int screenWidth = 1920;
+int screenHeight = 1080;
+int refreshRate = 60;
+
 int particleLife;
 int particleHalfLife;
 
-int refreshRate = 60;
 int score[2];
 Vector2 circleVelocity;
 
@@ -25,6 +28,14 @@ bool quitGame = false;
 enum Screen currentScreen;
 
 void UpdateDrawFrame(void) {
+    #if defined(PLATFORM_WEB)
+    if (IsWindowResized()) {
+        SetWindowSize(GetScreenWidth(), GetScreenHeight());
+    }
+    #endif
+
+    UpdateResolution();
+
     if(currentScreen == MENU) {
         UpdateMenu();
         DrawMenu();
@@ -41,6 +52,7 @@ void UpdateDrawFrame(void) {
         UpdateGame();
         DrawGame();
     }
+
     #if defined(PLATFORM_WEB)
     if (quitGame || WindowShouldClose()) {
         emscripten_cancel_main_loop();
@@ -50,10 +62,10 @@ void UpdateDrawFrame(void) {
 
 #if defined(PLATFORM_WEB)
     float playerSpeed = 6.5f * 2.75f;
-    int ballStartSpeed = (int)(5 * 2.75f);
+    int circleStartSpeed = (int)(5 * 2.75f);
 #else
     float playerSpeed = 6.5f;
-    int ballStartSpeed = 5;
+    int circleStartSpeed = 5;
 #endif
 
 int main() {

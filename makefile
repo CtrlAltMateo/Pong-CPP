@@ -7,4 +7,4 @@ pongpromax.exe: main.cpp menu.cpp menu.h game.cpp game.h graphics.cpp graphics.h
                                                                    -static -static-libgcc -static-libstdc++
                                                                    
 web: main.cpp menu.cpp menu.h game.cpp game.h graphics.cpp graphics.h config.h audio.h audio.cpp particles.cpp particles.h
-	em++ main.cpp menu.cpp game.cpp graphics.cpp audio.cpp particles.cpp -o index.html -O2 -Wall -Iraylibweb/src raylibweb/src/libraylib.web.a -s USE_GLFW=3 -s ASYNCIFY -DPLATFORM_WEB --shell-file shell.html -s SINGLE_FILE=1 --embed-file Assets -s STACK_SIZE=512KB -std=c++17 -s ALLOW_MEMORY_GROWTH=1
+	em++ main.cpp menu.cpp game.cpp graphics.cpp audio.cpp particles.cpp -o Pong-CPP.html -O2 -Wall -Iraylibweb/src raylibweb/src/libraylib.web.a -s USE_GLFW=3 -s ASYNCIFY -DPLATFORM_WEB --shell-file shell.html -s SINGLE_FILE=1 --embed-file Assets -s STACK_SIZE=512KB -std=c++17 -s ALLOW_MEMORY_GROWTH=1

@@ -14,4 +14,6 @@ void PlaySelectSound();
 
 void PlayMainMusic();
 
+void KABOOM();
+
 void UpdateAudio();

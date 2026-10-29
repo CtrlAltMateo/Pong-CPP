@@ -1,22 +1,20 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-const int screenWidth = 1920;
-const int screenHeight = 1080;
+extern int screenWidth;
+extern int screenHeight;
+extern int refreshRate;
+
 const int centerLineSegments = 108;
 const int particleCount = 100;
 
 extern float playerSpeed;
-extern int ballStartSpeed;
-const float ballAcceleration = 1.087f;
-
-
-const float aiSpeedRatio = 1;
+extern int circleStartSpeed;
+const float circleAcceleration = 1.087f;
 
 extern int particleLife;
 extern int particleHalfLife;
 
-extern int refreshRate;
 extern int score[2];
 extern Vector2 circleVelocity;
 

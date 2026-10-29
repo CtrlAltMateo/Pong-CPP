@@ -69,7 +69,6 @@ void DrawGame() {
         DrawCenterLine(WHITE, centerLineSegments);
         const char *text = TextFormat("%i   %i", score[0], score[1]);
         DrawText(text, screenWidth / 2 - MeasureText(text, 100) / 2, 15, 100, WHITE);
-        DrawText(TextFormat("%i", particleLife), 15, 15, 50, WHITE);
         DrawParticles(particles);
     EndDrawing();
 }
